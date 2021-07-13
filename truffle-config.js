@@ -51,10 +51,12 @@ module.exports = {
       // Special function to setup the provider
       provider: function () {
         // Setting the provider with the Infura Rinkeby address and Token
-        return new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${infuraKey}`)
+        return new HDWalletProvider(mnemonic, `wss://rinkeby.infura.io/ws/v3/${infuraKey}`)
       },
       // Network id is 4 for Rinkeby
-      network_id: "4"
+      network_id: "4",
+      networkCheckTimeout: 1000000,
+      timeoutBlocks: 2000
     },
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
